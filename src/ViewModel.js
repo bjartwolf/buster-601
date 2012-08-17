@@ -22,7 +22,7 @@ function TaskListViewModel() {
     self.removeTask = function(task) { self.tasks.remove(task) };
 
     self.save = function() {
-	console.log("saving");
+    console.log("saving");
         $.ajax("http://localhost:1337/tasks", {
             data: ko.toJSON({ tasks: self.tasks }),
             type: "post", contentType: "application/json",
@@ -30,10 +30,17 @@ function TaskListViewModel() {
         });
     };
 
-    // Load initial state from server, convert it to Task instances, then populate self.tasks
-    $.getJSON("http://localhost:1337/tasks", function(allData) {
-        var mappedTasks = $.map(allData, function(item) { return new Task(item) });
-        self.tasks(mappedTasks);
-    });    
+    self.load = function () {
+        var services;
+        if (window) {
+            console.log("in browser");
+            services = window.services;
+        }   
+        services.load( function (mappedTasks) { 
+            self.tasks(mappedTasks);
+        });
+    };
+
+    self.load();
 }
 

@@ -8,6 +8,11 @@ Link to buster
 Install buster lint
 	sudo npm install buster-lint
 
+Start dummy server
+start a new terminal and run 
+node server.js
+
+
 Run tests
 	buster server
 	// Connect browser(s) to localhost:1111

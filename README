@@ -1,4 +1,4 @@
-This tutorial is the tutorial from http://learn.knockoutjs.com/#/?tutorial=collections
+This tutorial is the tutorial from http://learn.knockoutjs.com/#/?tutorial=loadingsaving
 with setup and tests from busterjs.org
 
 They require buster, node, npm to be set up on your system

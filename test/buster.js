@@ -8,6 +8,7 @@ config["My tests"] = {
         "lib/jquery-1.8.0.min.js"
     ],
     sources: [
+        "src/services-stub.js",
         "src/ViewModel.js"
     ],
     tests: [

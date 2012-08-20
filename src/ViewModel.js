@@ -8,6 +8,7 @@ function Task(data) {
 function TaskListViewModel() {
     // Data
     var self = this;
+    self.services = MYAPP.services;
     self.tasks = ko.observableArray([]);
     self.newTaskText = ko.observable();
     self.incompleteTasks = ko.computed(function () {
@@ -24,21 +25,13 @@ function TaskListViewModel() {
     };
 
     self.save = function () {
-        var services;
-        if (window) {
-            services = window.services;
-        }
-        services.save(function (result) {
+        self.services.save(function (result) {
             console.log(result);
         });
     };
 
     self.load = function () {
-        var services;
-        if (window) {
-            services = window.services;
-        }
-        services.load(function (mappedTasks) {
+        self.services.load(function (mappedTasks) {
             self.tasks(mappedTasks);
         });
     };

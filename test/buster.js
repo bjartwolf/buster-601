@@ -26,6 +26,8 @@ config["My tests"] = {
                 "buster",
                 "refute",
                 "assert",
+                "Task",
+                "MYAPP",
                 "ko",
                 "TaskListViewModel",
             ]

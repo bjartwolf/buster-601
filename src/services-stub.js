@@ -5,7 +5,7 @@ var MYAPP = MYAPP || {};
     MYAPP.services.load = function (callback) {
         callback([new Task({'title': 'testtitle', 'isDone': false})]);
     };
-    MYAPP.services.save = function (callback) {
-        callback("ok");
+    MYAPP.services.save = function (data, callback) {
+        callback("saved data: " + data);
     };
 }());

@@ -7,9 +7,9 @@ var MYAPP = MYAPP || {};
         callback(mappedTasks);
         });    
     };
-    MYAPP.services.save = function (callback) {
+    MYAPP.services.save = function (data, callback) {
         $.ajax("http://localhost:1337/tasks", {
-            data: ko.toJSON({ tasks: self.tasks }),
+            data: ko.toJSON(data),
             type: "post", contentType: "application/json",
             success: function(result) { callback(result) }
         });

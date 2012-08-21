@@ -25,7 +25,7 @@ function TaskListViewModel() {
     };
 
     self.save = function () {
-        self.services.save(function (result) {
+        self.services.save(self.tasks(), function (result) {
             console.log(result);
         });
     };

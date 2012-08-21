@@ -1,6 +1,8 @@
 var http = require('http'),
     response = JSON.stringify([{'title':'Wire the money to Panama','isDone':true},{'title':'Get hair dye, beard trimmer, dark glasses and passport','isDone':false},{'title':'Book taxi to airport','isDone':false},{'title':'Arrange for someone to look after the cat','isDone':false}]);
 
+// do not EVER use the death* for allow origin for real
+// It's just used here to avoid having to run the index of a local fileserver
 http.createServer(function (req, res) {
     if (req.method === "GET") {
         res.writeHead(200, {

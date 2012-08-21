@@ -38,4 +38,3 @@ function TaskListViewModel() {
 
     self.load();
 }
-

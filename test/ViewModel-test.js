@@ -18,9 +18,14 @@ buster.testCase("The ViewModel", {
         this.vm.save();
         assert.calledOnce(MYAPP.services.save);
     },
-    "should call save when save command is called 2": function () {
+    "should have loaded testdata from stub at init": function () {
+        var firstTask = this.vm.tasks()[0];
+        assert.defined(firstTask, 'There should be a loaded task');
+        assert.equals(firstTask.title(), 'testtitle', 'The title should be title from the stub');
+    },
+    "the save function should have the tasklist as the first argument": function () {
         MYAPP.services.save = this.spy();
         this.vm.save();
-        assert.calledOnce(MYAPP.services.save);
+        assert.calledWith(MYAPP.services.save, this.vm.tasks());
     }
 });

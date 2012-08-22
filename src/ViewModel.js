@@ -25,13 +25,21 @@ function TaskListViewModel() {
     };
 
     self.save = function () {
-        self.services.save(self.tasks(), function (result) {
+        self.services.save(self.tasks(), function (err, result) {
+            if (err) {
+                console.log("Some error occured: " + err);
+                throw "Application crashed";
+            }
             console.log(result);
         });
     };
 
     self.load = function () {
-        self.services.load(function (mappedTasks) {
+        self.services.load(function (err, mappedTasks) {
+            if (err) {
+                console.log("Some error occured: " + err);
+                throw "Application crashed";
+            }
             self.tasks(mappedTasks);
         });
     };
